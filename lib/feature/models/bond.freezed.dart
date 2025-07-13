@@ -147,14 +147,15 @@ class __$$BondImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BondImpl implements _Bond {
+class _$BondImpl extends _Bond {
   const _$BondImpl(
       {@JsonKey(name: 'company_name') required this.companyName,
       required this.logo,
       required this.isin,
       required this.rating,
       required final List<String> tags})
-      : _tags = tags;
+      : _tags = tags,
+        super._();
 
   factory _$BondImpl.fromJson(Map<String, dynamic> json) =>
       _$$BondImplFromJson(json);
@@ -213,13 +214,14 @@ class _$BondImpl implements _Bond {
   }
 }
 
-abstract class _Bond implements Bond {
+abstract class _Bond extends Bond {
   const factory _Bond(
       {@JsonKey(name: 'company_name') required final String companyName,
       required final String logo,
       required final String isin,
       required final String rating,
       required final List<String> tags}) = _$BondImpl;
+  const _Bond._() : super._();
 
   factory _Bond.fromJson(Map<String, dynamic> json) = _$BondImpl.fromJson;
 

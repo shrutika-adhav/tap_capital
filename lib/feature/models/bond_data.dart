@@ -1,4 +1,6 @@
 
+import 'dart:core';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'bond_data.freezed.dart';
@@ -23,5 +25,23 @@ class BondData with _$BondData{
 
   factory BondData.fromJson(Map<String, dynamic> json)
     => _$BondDataFromJson(json);
+
+  const BondData._();
+
+  String get logo => logo;
+
+  String get companyName => companyName;
+
+  String get isin => isin;
+
+  String get description => description;
+
+  String get status => status;
+
+  Map<String, List<String>> get prosAndCons => prosAndCons;
+
+  Map<String, List<Map<String, dynamic>>> get financials => financials;
+
+  Map<String, dynamic> get issuerDetails => issuerDetails;
 
 }

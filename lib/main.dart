@@ -6,9 +6,10 @@ import 'package:tap_capital/init_dependencies.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initDependencies();
-  //await initDependencies();
-  runApp(const MyApp());
+  await initDependencies();
+  runApp(BlocProvider(
+      create: (_) => serviceLocator<BondBloc>(),
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,17 +17,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'TAP Invest',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BlocProvider(
-        create: (context) => BondBloc(
-            bondRepository: serviceLocator()), // Or YourCubit()
-        child: const HomePage(),
-      )
+      home: const HomePage(),
     );
   }
 }

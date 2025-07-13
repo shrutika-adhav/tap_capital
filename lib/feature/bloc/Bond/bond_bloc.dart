@@ -10,7 +10,7 @@ part 'bond_event.dart';
 part 'bond_state.dart';
 
 
-@injectable
+@Singleton()
 class BondBloc extends Bloc<BondEvent, BondState> {
 
   final BondRepository _bondRepository;

@@ -26,7 +26,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i655.BondRepository>(() => _i655.BondRepositoryImpl());
-    gh.factory<_i464.BondBloc>(
+    gh.singleton<_i464.BondBloc>(
         () => _i464.BondBloc(bondRepository: gh<_i655.BondRepository>()));
     return this;
   }

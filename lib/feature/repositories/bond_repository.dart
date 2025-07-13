@@ -16,6 +16,7 @@ abstract interface class BondRepository {
 
 }
 
+@factoryMethod
 @Injectable(as: BondRepository)
 class BondRepositoryImpl implements BondRepository{
 

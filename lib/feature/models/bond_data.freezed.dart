@@ -193,7 +193,7 @@ class __$$BondDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BondDataImpl implements _BondData {
+class _$BondDataImpl extends _BondData {
   const _$BondDataImpl(
       {required this.logo,
       @JsonKey(name: 'company_name') required this.companyName,
@@ -207,7 +207,8 @@ class _$BondDataImpl implements _BondData {
       required final Map<String, dynamic> issuerDetails})
       : _prosAndCons = prosAndCons,
         _financials = financials,
-        _issuerDetails = issuerDetails;
+        _issuerDetails = issuerDetails,
+        super._();
 
   factory _$BondDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$BondDataImplFromJson(json);
@@ -301,7 +302,7 @@ class _$BondDataImpl implements _BondData {
   }
 }
 
-abstract class _BondData implements BondData {
+abstract class _BondData extends BondData {
   const factory _BondData(
       {required final String logo,
       @JsonKey(name: 'company_name') required final String companyName,
@@ -313,6 +314,7 @@ abstract class _BondData implements BondData {
       required final Map<String, List<Map<String, dynamic>>> financials,
       @JsonKey(name: 'issuer_details')
       required final Map<String, dynamic> issuerDetails}) = _$BondDataImpl;
+  const _BondData._() : super._();
 
   factory _BondData.fromJson(Map<String, dynamic> json) =
       _$BondDataImpl.fromJson;

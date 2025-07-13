@@ -19,4 +19,16 @@ class Bond with _$Bond{
   factory Bond.fromJson(Map<String, dynamic> json)
     => _$BondFromJson(json);
 
+  const Bond._();
+
+  String get logo => logo;
+
+  String get isin => isin;
+
+  String get rating => rating;
+
+  List<String> get tags => tags;
+
+  String get companyName => companyName;
+
 }
